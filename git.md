@@ -12,7 +12,7 @@
     没什么特殊含义，master 是 git init 时默认的分支名字， origin 是 git clone 时默认的远程仓库名字
 - 远程跟踪分支
 
-    远程跟踪分支是远程分支状态的引用，指向你上一次连接到仓库时分支所处的状态, 如 origin/master, 假设你是在本地的 master 分支工作的，origin/master 指向远程的 master 分支你 clone 时候的状态
+    远程跟踪分支是远程分支状态的引用，指向你上一次连接到仓库时分支所处的状态, 如 origin/master, 假设你是在本地的 master 分支工作的，origin/master 指向远程的 master 分支你 clone 时候的状态
 
     注意：当使用 git fetch (origin) 抓取到新的远程跟踪分支时(假如是 issue53fix 分支)，不会自动生成本地分支，想要本地在新的远程跟踪分支上工作时
     ```
@@ -22,7 +22,7 @@
     ```
     git merge origin/issue53fix
     ```
-    由于 git checkout -b [branch] [remotename]/[branch] 很常用，因此有其简写形式： git checkout --track [remtoe/name]/[branch]，上述命令可以简写为:
+    由于 git checkout -b [branch] [remotename]/[branch] 很常用，因此有其简写形式： git checkout --track [remtoe/name]/[branch]，上述命令可以简写为:
     ```
     git checkout --track origin/issue53fix
     ```
@@ -39,7 +39,7 @@
     ```
 - 到底是使用 rebase 还是 merge?
 
-    哲学问题, 没有答案, 有人认为修改提交, 合并的历史是一种欺骗, 有人想用 rebase 保持提交历史的整洁, 一个原则就是永远不要对仓库外有副本的分支进行变基
+    哲学问题, 没有答案, 有人认为修改提交, 合并的历史是一种欺骗, 有人想用 rebase 保持提交历史的整洁, 一个原则就是永远不要对仓库外有副本的分支进行变基
 - 怎样保持 fork 的项目和上游同步?
     ```
     git remote -v 查看当前的远程仓库地址 
@@ -72,7 +72,7 @@
     ```
     最终只会有一次提交记录
 
-- 当你在一个分支上开发的时候，master 分支的内容已经变化了好多，你要合并 master 分支的修改, 怎么办? 
+- 当你在一个分支上开发的时候，master 分支的内容已经变化了好多，你要合并 master 分支的修改, 怎么办? 
     ```
     git checkout your_branch
     git merge master
@@ -232,7 +232,7 @@ git tag -a [tagname] -m 'your tag message'
 git log --pretty=oneline
 
 # 打标签, 需指定过去某次提交的(部分)校验和, -a 参数是可选的, 不加打轻量级标签, 加上则打附注标签
-git tag -a [tagname] [某次提交的部分校验和]
+git tag -a [tagname] [某次提交的部分校验和]
 # 如:
 git tag -a v1.2 9fceb02
 ```
@@ -260,7 +260,7 @@ git branch -v
 # 查看已经合并的分支
 git branch --merged
 
-# 查看没有合并的分支
+# 查看没有合并的分支
 git branch --no-merged
 
 # 强制删除没有合并的分支
@@ -275,11 +275,11 @@ git checkout target_branch
 # 新建分支并切换到
 git checkout -b target_branch
 
-# 合并 hot_fix 分支到 master
+# 合并 hot_fix 分支到 master
 git checkout master
 git merge hot_fix
 
-# 删除 hot_fix 分支
+# 删除 hot_fix 分支
 git branch -d hot_fix
 
 # 删除远程的某个分支
@@ -294,7 +294,7 @@ git push origin issue53fix
 
 # 修正正在跟踪的上游分支
 git branch --set-upstream-to [remotename]/[branch]
-# 简写为
+# 简写为
 git branch -u [remotename]/[branch]
 
 # 查看设置的所有跟踪分支
@@ -302,11 +302,11 @@ git branch -vv
 ```
 
 ## 变基操作
-变基操作也属于分支操作，由于这个名字比较特别，单独拿出来说一说~
+变基操作也属于分支操作，由于这个名字比较特别，单独拿出来说一说~
 
-git 中整合不同分支的修改，主要有两种方式，merge 和 rebase, merge 两个分支的最新快照，和这两个分支的最近公共祖先进行三方合并，合并的结果生成一个新的快照，并提交。 变基是将某一分支上的所有修改都移动到另一个分支上, 优点是能够保证提交历史的整洁吧, 将自己的代码变基到 origin/master 再提PR, 这样项目的维护者就可以 fast forward (快进合并).
+git 中整合不同分支的修改，主要有两种方式，merge 和 rebase, merge 两个分支的最新快照，和这两个分支的最近公共祖先进行三方合并，合并的结果生成一个新的快照，并提交。 变基是将某一分支上的所有修改都移动到另一个分支上, 优点是能够保证提交历史的整洁吧, 将自己的代码变基到 origin/master 再提PR, 这样项目的维护者就可以 fast forward (快进合并).
 
-***永远不要对仓库外有副本的分支进行变基!!! 不然会被打死的*** (那样所有人都不得不将他们的修改和你的分支整合, 他们 git pull 之后又将产生新的合并, 推送到远程仓库实际上又将变基抛弃的提交又找了回来, 陷入万劫不复的深渊), 万一发生了这种情况,可能会有帮助的命令
+***永远不要对仓库外有副本的分支进行变基!!! 不然会被打死的*** (那样所有人都不得不将他们的修改和你的分支整合, 他们 git pull 之后又将产生新的合并, 推送到远程仓库实际上又将变基抛弃的提交又找了回来, 陷入万劫不复的深渊), 万一发生了这种情况,可能会有帮助的命令
 
     ```
     # 使用
