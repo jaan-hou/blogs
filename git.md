@@ -124,19 +124,19 @@
     创建完别名, git checkout master 就可以使用 git co maseter
 
 # 弃疗时用会到的命令(需熟记!!!, 你会用到的)
-    - 撤销暂存(staged)的文件
+- 撤销暂存(staged)的文件
     ```
     git reset HEAD <file>
     # 如：
     git reset HEAD README.md
     ```
-    - 撤销对工作区文件的修改
+- 撤销对工作区文件的修改
     ```
     git checkout -- <file>
     # 如：
     git checkout -- README.md
     ```
-    - 撤销某(几)次提交，回到指定的commit id
+- 撤销某(几)次提交，回到指定的commit id
     ```
     git reset --hard commit_id
     git push origin HEAD --force
@@ -176,8 +176,6 @@
     git clean -nfd
     git clean -nxfd
     ```    
-
-
 
 # Git 常用命令
 
