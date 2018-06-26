@@ -344,4 +344,4 @@ git log --Sfunction_name
 - 长期分支
 如 master, light_merge, develop 分支等
 - 特性分支
-如 hot_fix, feature_XXX 等功能分支
+如 hot_fix, feature_xxx 等功能分支
