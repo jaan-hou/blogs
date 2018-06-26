@@ -22,7 +22,7 @@
     ```
     git merge origin/issue53fix
     ```
-    由于 git checkout -b [branch] [remotename]/[branch] 很常用，因此有其简写形式： git checkout --track [remtoe/name]/[branch]，上述命令可以简写为：
+    由于 git checkout -b [branch] [remotename]/[branch] 很常用，因此有其简写形式： git checkout --track [remtoe/name]/[branch]，上述命令可以简写为:
     ```
     git checkout --track origin/issue53fix
     ```
