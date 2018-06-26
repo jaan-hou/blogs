@@ -104,14 +104,13 @@
 
 
 # git 比较好实践
-    - 在切换分支之前保持工作目录干净
-        通常有两种方法
-        1. 提交 (commit) 你的修改
-        2. 保存进度（stashing)
-    - 使用 git fetch 而不是 git pull
-        git pull 会尝试合并到当前分支, 可能这并不是你想要的
+- 在切换分支之前保持工作目录干净
+    通常有两种方法
+    1. 提交 (commit) 你的修改
+    2. 保存进度（stashing)
+- 使用 git fetch 而不是 git pull, git pull 会尝试合并到当前分支, 可能这并不是你想要的
 
-    - 只把变基命令 (rebase) 当做在提交前清理提交使之整洁的工具, 只在未推送到远程公用仓库的提交上执行变基命令, then you are safe
+- 只把变基命令 (rebase) 当做在提交前清理提交使之整洁的工具, 只在未推送到远程公用仓库的提交上执行变基命令, then you are safe
 
 # Git 使用技巧
 - alias
