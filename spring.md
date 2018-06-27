@@ -5,7 +5,7 @@
 
         发现应用上下文中所创建的 bean
         - bean 要有 @Component 注解
-        - bean 要有 @ComponentScan 注解启用组件扫描, 或者通过 xml 启用组件扫描
+        - bean 要有 @ComponentScan 注解启用组件扫描, 或者通过 xml 启用组件扫描
         ```
         <context: component-scan base-package="xxx">
         ``` 
@@ -13,25 +13,25 @@
         ```
         @Component(basePackages="xxx")
         ```
-        指明多个要扫描的基础包
+        指明多个要扫描的基础包
         ```
         @Component(basePackages={"xxx","yyy"})
         ```
-        或者指定为包中所包含的类或者接口
+        或者指定为包中所包含的类或者接口
         ```
         @Component(basePackageClasses={XX.class,YY.class})
         ```
     - 自动装配
 
-        Spring 自动满足 bean 之间的依赖, 主要是用 @Autowired 注解, 可以用到类的任何方法或属性上(构造器, Setter 方法等)
+        Spring 自动满足 bean 之间的依赖, 主要是用 @Autowired 注解, 可以用到类的任何方法或属性上(构造器, Setter 方法等)
 
     - 处理自动装配的歧义性
         - 用 @Primary 注解标识首选的 bean
-        - 用 @Qualifier 注解限定自动装配的 bean, @Qualifier 注解的参数是想要注入的 bean 的id, 默认生成的 bean 的 id 是类名以小写字母开头, 这样把限定符和类名耦合在了一起, 改了类名之后限定符会失败, 如有必要更好的方法是给 bean 创建自定义的限定符
+        - 用 @Qualifier 注解限定自动装配的 bean, @Qualifier 注解的参数是想要注入的 bean 的id, 默认生成的 bean 的 id 是类名以小写字母开头, 这样把限定符和类名耦合在了一起, 改了类名之后限定符会失败, 如有必要更好的方法是给 bean 创建自定义的限定符
 
 - java 中显式配置
 
-    比如你要装配第三方库中的组件, 当然没有办法在它的类上去添加 @Component 注解, 必须使用显式装配的方法
+    比如你要装配第三方库中的组件, 当然没有办法在它的类上去添加 @Component 注解, 必须使用显式装配的方法
     - 创建 Java Config 类
 
         添加 @Configuration 注解
@@ -65,7 +65,7 @@
         c:参数名-ref="要注入的 bean id" 
     </bean>
     ``` 
-    更好的做法是用参数的顺序取代参数名
+    更好的做法是用参数的顺序取代参数名
     ```
     <bean id="xxx" class="yyy" >
         c:_0-ref="要注入的 bean id" />
@@ -133,7 +133,7 @@
 
 ## Spring bean 的作用域
 
-使用 xml 配置 bean 的时候, 可以使用 <bean> 元素的 scope 属性来设置作用域
+使用 xml 配置 bean 的时候, 可以使用 <bean> 元素的 scope 属性来设置作用域
 
 - 单例(默认)
 
